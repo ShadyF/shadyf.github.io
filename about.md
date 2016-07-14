@@ -15,4 +15,13 @@ fix that one stubborn bug.
 
 ## This Site
 
+This website was made using [Jekyll](https://jekyllrb.com/), a static site generator.
+The theme is based on [Beautiful Jekyll](https://github.com/daattali/beautiful-jekyll).
 
+It doubles as my resume, and a place where I could write about any interesting challenges and projects I come across during my learning experience.
+
+It'll contain a lot of solutions to competitive programming problems, a couple of code snippets here and there, and even some programming tutorials.
+
+## Contact
+
+Add some witty remark regarding contact details here
