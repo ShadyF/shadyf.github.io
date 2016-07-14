@@ -16,12 +16,15 @@ fix that one stubborn bug.
 ## This Site
 
 This website was made using [Jekyll](https://jekyllrb.com/), a static site generator.
-The theme is based on [Beautiful Jekyll](https://github.com/daattali/beautiful-jekyll).
+The theme is based on [Beautiful Jekyll](https://github.com/daattali/beautiful-jekyll). 
+You can checkout the source of this site [here](wtf), on Github.
 
 It doubles as my resume, and a place where I could write about any interesting challenges and projects I come across during my learning experience.
 
-It'll contain a lot of solutions to competitive programming problems, a couple of code snippets here and there, and even some programming tutorials.
+It'll contain a lot of solutions to competitive programming problems, 
+a couple of code snippets here and there, my notes, and even some programming guides.
 
 ## Contact
-
-Add some witty remark regarding contact details here
+I'm always open to meeting new people and helping whenever I can.
+So whether it's for a general question, giving me some helpful feedback, or even some casual chit-chat,
+feel free to hit me up at [sssfanous@gmail.com](mailto:sssfanous@gmail.com).
