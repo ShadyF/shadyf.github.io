@@ -327,7 +327,8 @@ footer .theme-by {
 }
 
 .post-preview:first-child {
-    margin-top: 35px;
+    margin-top: 30px;
+    padding-top: 0;
 }
 .post-preview:last-child {
     border-bottom: 0;
@@ -387,6 +388,11 @@ footer .theme-by {
 .intro-header {
     margin: 80px 0 20px;
     position: relative;
+}
+
+.main-page-intro {
+    padding-bottom: 45px;
+    box-shadow: 0 4px 6px -3px #AAA;
 }
 
 .intro-header.big-img {
@@ -561,7 +567,7 @@ footer .theme-by {
     font-size: 14px;
     font-weight: 800;
     letter-spacing: 1px;
-    padding: 10px 5px;
+    padding: 10px 10px;
     background: #FFF;
     border-radius: 0;
     color: #404040;
@@ -675,4 +681,12 @@ table tr td :last-child {
 .category a:focus, .category a:hover {
     text-decoration: none;
     color: #b71137;
+}
+
+.previous-page {
+    float: left;
+}
+
+.next-page {
+    float: right;
 }
