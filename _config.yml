@@ -64,7 +64,7 @@ timezone: "Africa/Cairo"
 markdown: kramdown
 highlighter: rouge
 permalink: blog/:categories/:year-:month-:day-:title/
-paginate: 5
+paginate: 6
 
 kramdown:
   input: GFM
