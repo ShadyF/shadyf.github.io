@@ -31,7 +31,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #0085a1;
+    color: #b71137;
 }
 
 blockquote {
@@ -73,13 +73,13 @@ hr.small {
 ::-moz-selection {
     color: white;
     text-shadow: none;
-    background: #0085a1;
+    background: #b71137;
 }
 
 ::selection {
     color: white;
     text-shadow: none;
-    background: #0085a1;
+    background: #b71137;
 }
 
 img::selection {
@@ -130,7 +130,7 @@ img {
 .navbar-custom .navbar-brand:focus,
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus {
-    color: #0085a1;
+    color: #b71137;
 }
 
 @media only screen and (min-width: 768px) {
@@ -315,6 +315,9 @@ footer .theme-by {
     }
 }
 
+.post-preview:first-child {
+    padding-top: 0;
+}
 .post-preview:last-child {
     border-bottom: 0;
 }
@@ -327,10 +330,11 @@ footer .theme-by {
 .post-preview a:focus,
 .post-preview a:hover {
     text-decoration: none;
-    color: #0085a1;
+    color: #b71137;
 }
 
 .post-preview .post-title {
+    word-wrap: break-word;
     font-size: 30px;
     margin-top: 0;
 }
@@ -347,6 +351,10 @@ footer .theme-by {
     font-size: 18px;
     font-style: italic;
     margin: 0 0 10px;
+}
+
+.post-heading h1 {
+    word-wrap: break-word;
 }
 
 .post-preview .post-entry {
@@ -615,4 +623,50 @@ table tr td :first-child {
 table tr th :last-child,
 table tr td :last-child {
     margin-bottom: 0;
+}
+
+/* --- Categories Page --- */
+
+.category {
+}
+
+.category:first-child {
+    padding: 20px 0 20px 0;
+}
+
+.category-articles {
+    padding-left: 35px;
+}
+
+.category-articles article {
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.category-articles time {
+    float: right;
+}
+
+.category-post-meta {
+    color: #808080;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.category-post-title {
+    word-wrap: break-word;
+    text-decoration: none;
+    color: #404040;
+    letter-spacing: 0.02em;
+}
+
+.category a:focus, .category a:hover {
+    text-decoration: none;
+    color: #0085a1;
+}
+
+.recent-heading {
+    margin: 50px 0 30px 0;
+    display: inline-block;
 }

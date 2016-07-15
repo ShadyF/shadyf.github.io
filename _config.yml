@@ -25,6 +25,7 @@ description: Personal website and blog of Shady Fanous
 navbar-links:
   Home: "http://localhost:4000"
   Projects: "projects"
+  Post Archive: "archive"
   About me / Contact: "about"
 
 # Image to show in the navigation bar - image must be a square (width = height)
