@@ -1,13 +1,25 @@
 @import url("pygment_highlights.css");
 
 /* --- General --- */
-
+html {
+    height: 100%;
+    min-height: 100%;
+}
 body {
     font-family: 'Lora', 'Times New Roman', serif;
     font-size: 20px;
     color: #404040;
-    position: relative;
     background: #FFF;
+
+    /* Hardcoded for footer*/
+    position: relative;
+    min-height: calc(100% - 282px);
+}
+
+@media only screen and (min-width: 768px) {
+    body {
+        min-height: calc(100% - 372px);
+    }
 }
 
 p {
@@ -275,8 +287,12 @@ footer {
     padding: 30px 0;
     background: #222;
     /*border-top: 1px #EAEAEA solid;*/
-    margin-top: 40px;
     font-size: 14px;
+
+    /* Hardcoded values to prevent empty space between footer and end of page */
+    position: absolute;
+    bottom: -202px;
+    width: 100%;
 }
 
 footer a {
@@ -302,6 +318,7 @@ footer .theme-by {
 @media only screen and (min-width: 768px) {
     footer {
         padding: 50px 0;
+        bottom: -242px;
     }
 
     footer .footer-links {
