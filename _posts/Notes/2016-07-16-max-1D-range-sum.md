@@ -51,6 +51,7 @@ int main()
         result = max(result, sum);   // result is the max of result and sum
         if ( sum < 0 ) sum = 0;      // If sum goes below 0, reset
     }
+    
     if ( result <= 0 )
         printf("Losing streak.\n");
     else

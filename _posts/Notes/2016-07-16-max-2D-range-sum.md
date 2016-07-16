@@ -65,16 +65,20 @@ int main()
         if(i > 0 && j > 0) A[i][j] -= A[i-1][j-1];
       }
 
-    //  Calcute the sum of each possible box,
-    //  where (i, j) are starting points and (k, l) are ending points
-    //  For example, first loop will compute all possible boxes from (0, 0) to (N, N)
-    //  Next loop from (0, 1) to (N, N) and so on....
-    //  To compute, for example, from (2, 2) to (5, 6)
-    //  Take entry of (5, 6) which represents the sum from (0, 0) to (5, 6)
-    //  Then Remove left and top portions i.e remove from (0, 0) to (1, 6) - TOP PORTION
-    //  Then remove from (0, 0) to (5, 1) - LEFT PORTION
-    //  If removed both top and left portions, add (1, 1) to compensate
-    //  Check if this sum > result, if true, result = sum
+    // Calcute the sum of each possible box,
+    // where (i, j) are starting points and (k, l) are ending points
+    
+    // EXAMPLE
+    // first loop will compute all possible boxes from (0, 0) to (N, N)
+    // Next loop from (0, 1) to (N, N) and so on....
+    // To compute, for example, from (2, 2) to (5, 6)
+    // Take entry of (5, 6) which represents the sum from (0, 0) to (5, 6)
+    // Then remove left and top portions i.e 
+    // TOP PORTION - remove from (0, 0) to (1, 6)
+    // LEFT PORTION - remove from (0, 0) to (5, 1)
+    // If removed both top and left portions, add (1, 1) to compensate
+    // Check if this sum > result, if true, result = sum
+    
     for(int i = 0; i < N; i++) for(int j = 0; j < N; j++)
       for(int k = i; k < N; k++) for(int l = j; l < N; l++)
       {
