@@ -21,7 +21,7 @@ Bootstrap, ImageMagick and Pillow.
 
 The original iteration of [**Theia-web**](https://theia-web.herokuapp.com/editor).
 Despite having much less features than its web-based counterpart, it's a
-cross-platform GUI application that allows the user to enter and process
+cross-platform GUI application that allows its users to enter and process
 images using their own custom 3x3 kernel matrices.
 
 **Technologies Used:** Python3, Tkinter and Pillow.
@@ -48,9 +48,54 @@ mean some courses will fail to register due to them reaching their full capacity
 **CRN Paster** solves this problem by allowing the user to input all their CRNs and pastes
 them all instantaniously with a press of a button.
 
-I'm currently in the midst of re-implementing **CRN Paster** using [Selenium](http://www.seleniumhq.org/)
-to fully automate the process.
+I'm currently in the midst of re-implementing **CRN Paster** using 
+[Selenium](http://www.seleniumhq.org/) to fully automate the process.
 
 **Technologies Used:** Python2, Tkinter
 
 [**Source Code**](https://github.com/ShadyF/CRN_Paster)
+
+<hr>
+
+## Static Timing Analysis Tool
+
+A [Static Timing Analysis Tool](https://en.wikipedia.org/wiki/Static_timing_analysis)
+for digital circuits. It identifies all the timing paths of a given circuit,
+applies the Critical Path Method (CPM) on it, and outputs all timing violations (if any),
+along with the slacks of each gate.
+
+**Team Members:** 3
+
+**Technologies Used:** Javascript, Jquery
+
+[**Source Code**](https://github.com/ShadyF/CRN_Paster)
+
+<hr>
+
+## Mini Game Console
+
+An implementation of both [Pong](https://en.wikipedia.org/wiki/Pong) 
+and [Breakout](https://en.wikipedia.org/wiki/Breakout_\(video_game\))
+on a FPGA board. Can be easily connected to any VGA enabled monitor and
+feautures multiplayer with joystick support, an optional "Play against AI" mode,
+and a hardware-implemented scoreboard.
+
+**Team Members:** 2
+
+**Technologies Used:** Verilog HDL, Xilinx Basys2 FPGA
+
+[**Source Code**](https://github.com/ShadyF/CSCE2301_Project2_GameConsole)
+
+<hr>
+
+## Advanced Pipelined MIPS Simulator
+
+A GUI application that takes a set of MIPS instructions and displays the 
+simulated/pipelined output, step by step.
+
+**Team Members:** 4
+
+**Technologies Used:** C++, Qt
+
+[**Source Code**](https://github.com/ShadyF/Advanced_Pipelined_MIPS_Simulator-CS330)
+
