@@ -4,7 +4,7 @@ title:  "First post of (hopefully) many to come!"
 category: Misc
 ---
 
-I recently discovered Jekyll and decided I should start a programming blog,
+I recently discovered [Jekyll](https://jekyllrb.com/) and decided I should start a programming blog,
 given all the notes and problem solutions I have accumulated on my desktop.
 
 Heck, I'll even throw in some guides to spice things up a bit. Then maybe,
