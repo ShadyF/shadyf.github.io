@@ -707,3 +707,16 @@ table tr td :last-child {
 .next-page {
     float: right;
 }
+
+
+.blog-post li {
+    margin: 10px 0;
+}
+
+.blog-post li:first-child {
+    margin: 15px 0 10px 0;
+}
+
+.blog-post li:last-child{
+    margin: 10px 0 20px 0;
+}
