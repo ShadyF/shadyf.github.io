@@ -74,7 +74,7 @@ along with the slacks of each gate.
 
 ## Mini Game Console
 
-An implementation of both [Pong](https://en.wikipedia.org/wiki/Pong) 
+An hardware implementation of both [Pong](https://en.wikipedia.org/wiki/Pong) 
 and [Breakout](https://en.wikipedia.org/wiki/Breakout_\(video_game\))
 on a FPGA board. Can be easily connected to any VGA enabled monitor and
 feautures multiplayer with joystick support, an optional "Play against AI" mode,
@@ -84,7 +84,7 @@ and a hardware-implemented scoreboard.
 
 **Technologies Used:** Verilog HDL, Xilinx Basys2 FPGA
 
-[**Source Code**](https://github.com/ShadyF/CSCE2301_Project2_GameConsole)
+[**Source Code**](https://github.com/ShadyF/Mini-Game-Console)
 
 <hr>
 
