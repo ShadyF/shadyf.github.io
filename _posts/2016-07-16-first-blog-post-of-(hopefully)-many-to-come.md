@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "First post of (hopefully) many to come!"
-categories: Misc
+category: Misc
 ---
 
 I recently discovered Jekyll and decided I should start a programming blog,
