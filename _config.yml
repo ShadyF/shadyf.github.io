@@ -23,7 +23,7 @@ description: Personal website and blog of Shady Fanous
 
 # List of links in the navigation bar
 navbar-links:
-  Home: "http://localhost:4000"
+  Home: "http://shadyf.github.io"
   Projects: "projects"
   Post Archive: "archive"
   About me / Contact: "about"
