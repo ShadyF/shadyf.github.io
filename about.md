@@ -17,7 +17,7 @@ fix that one stubborn bug.
 
 This website was made using [Jekyll](https://jekyllrb.com/), a static site generator.
 The theme is based on [Beautiful Jekyll](https://github.com/daattali/beautiful-jekyll). 
-You can checkout the source of this site [here](wtf), on Github.
+You can checkout the source of this site [here](https://github.com/ShadyF/shadyf.github.io), on Github.
 
 It doubles as my resume, and a place where I could write about any interesting challenges and projects I come across during my learning experience.
 
