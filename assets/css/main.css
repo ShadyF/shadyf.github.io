@@ -662,10 +662,7 @@ table tr td :last-child {
 /* --- Categories Page --- */
 
 .category {
-}
-
-.category:first-child {
-    padding: 20px 0 20px 0;
+    padding: 15px 0 15px 0;
 }
 
 .category-articles {
