@@ -69,5 +69,6 @@
     display: block;
     white-space: pre;
     overflow-x: auto;
+    overflow-y: hidden;
     word-wrap: normal;
 }
