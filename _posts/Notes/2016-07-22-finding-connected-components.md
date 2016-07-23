@@ -12,7 +12,7 @@ components](https://en.wikipedia.org/wiki/Connected_component_(graph_theory)).
 **Note:** _This is not the same as finding the number of **strongly** connected
 components_
 
-## General Idea
+## General Idea | $$ O(V+E) $$
 
 The general idea is to simply start traversing from any vertex (for simplicity,
 we start from vertex `0`). `DFS` or `BFS` should both work fine here. A search from any
