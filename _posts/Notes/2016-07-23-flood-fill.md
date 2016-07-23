@@ -33,8 +33,8 @@ There are also variation when dealing with an implicit 2D graph. Namely,
 8-way flood fill or 4-way flood fill, depending on whether we
 should consider nodes touching at corners connected or not.
 
-Pseudocode for all these different variations is in this
-[*Wikipedia Article*](https://en.wikipedia.org/wiki/Flood_fill#The_algorithm)
+Pseudocode for all these different variations are in this
+[*Wikipedia article*](https://en.wikipedia.org/wiki/Flood_fill#The_algorithm)
 
 ## Code
 
