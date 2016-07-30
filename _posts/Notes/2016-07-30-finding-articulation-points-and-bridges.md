@@ -114,3 +114,96 @@ int main()
         }
 }
 {% endhighlight %}
+
+## Variation
+
+A slight variation to this problem is how many disconnected components would
+result as a direct consequence of removing a vertex `u`
+
+Another variation is to find the articulation vertex whose removal would cause
+a greater amount of components to be disconnected.
+
+## General Idea of Variation
+
+Instead of keeping track of whether or not a node is an articulation point using
+`vector<bool> articulation_vertex`, we'll use a `vector<int> articulation_vertex` to
+keep track of how many components will be connected after the removal of vertex `u`.
+ 
+To achieve this, we'll first assume that each node in our graph `G` is **not**
+an articulation vertex. In other words, the removal of any node `u` in `G`
+will result in there being only **one** connected component (`G` will 
+remain one entity and not be disconnected).
+
+We'll then use the same algorithm we've used before, however, this around around,
+wheneven we find that `u` is an articulation vertex relative to one of its children,
+we'll increment `articulation_vertex[u]`.
+
+So, if we have a vertex `u` with say, 3 child components with no back-edges, the
+removal of `u` will result in `G` being cut into **four** connected components.
+
+## Code
+C++11 code of the variation is below.
+
+{% highlight c++ %}
+vector<int> dfs_num;
+vector<int> dfs_low;
+vector<int> dfs_parent;
+int dfs_root, root_children;
+
+
+// vector<int> instead of vector<bool>
+vector<int> articulation_vertex;
+
+void ArticulationPoint(int u)
+{
+    dfs_num[u] = dfs_low[u] = dfs_num_counter++;
+    for(int i = 0; i < adj_list[u].size(); i++)
+    {
+        int v = adj_list[u][i];
+        
+        if(dfs_num[v] == -1)
+        {
+            dfs_parent[v] = u;
+            if(u == dfs_root) root_children++;
+
+            ArticulationPoint(v);
+            
+            // we increment articulation_vertex here
+            if(dfs_low[v] >= dfs_num[u])
+                articulation_vertex[u]++;
+            if (dfs_low[v.first] > dfs_num[u])
+                printf(" Edge (%d, %d) is a bridge\n", u, v.first);
+                
+            dfs_low[u] = min(dfs_low[u], dfs_low[v]);
+        }
+        else if(v != dfs_parent[u])
+            dfs_low[u] = min(dfs_low[u], dfs_num[v]);
+    }
+}
+
+int main() 
+{
+    dfs_num_counter = 0;
+    dfs_num.clear(); dfs_num.resize(N, -1);
+    dfs_low.clear(); dfs_low.resize(N, 0);
+    dfs_parent.clear(); dfs_parent.resize(N, 0);
+    
+    // articulation_vertex initialized to 1 here
+    articulation_vertex.clear(); articulation_vertex.resize(N, 1);
+
+    for(int i = 0; i < N; i++)
+        if (dfs_num[i] == -1)
+        {
+            dfs_root = i; root_children = 0;
+            ArticulationPoint(i);
+            
+            // special case for root
+            // number of connected components after the removal of root
+            // is equal to how many children root has
+            articulation_vertex[dfs_root] = root_children;
+        }
+}
+{% endhighlight %}
+
+
+
