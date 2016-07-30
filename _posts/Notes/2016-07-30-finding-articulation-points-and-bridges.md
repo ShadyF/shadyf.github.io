@@ -135,7 +135,7 @@ will result in there being only **one** connected component (`G` will
 remain one entity and not be disconnected).
 
 We'll then use the same algorithm we've used before, however, this around around,
-wheneven we find that `u` is an articulation vertex relative to one of its children,
+whenever we find that `u` is an articulation vertex relative to one of its children,
 we'll increment `articulation_vertex[u]`.
 
 So, if we have a vertex `u` with say, 3 child components with no back-edges, the
