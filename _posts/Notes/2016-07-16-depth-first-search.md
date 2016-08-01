@@ -24,7 +24,7 @@ loop from taking place.
 C++ snippet below.
 {% highlight C++ %}
 vector<bool> visited;
-vector< vector<int> > AdjList;
+vector< vector<pair<int, int>> > AdjList;
 
 void dfs(int u)
 {
@@ -33,7 +33,7 @@ void dfs(int u)
     {
         //v.first -> edge connection v.second -> weight of edge
         pair<int, int> v = AdjList[u][j];
-        if (visited[v] == false)
+        if (visited[v.first] == false)
             dfs(v.first);
     }
 } // for simple graph traversal, we ignore the weight stored at v.second
