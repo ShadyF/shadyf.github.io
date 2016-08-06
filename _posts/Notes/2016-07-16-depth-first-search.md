@@ -15,7 +15,7 @@ first (go as **deep** as possible) before going back to the node's siblings.
 For each node `u` in the graph, DFS searches through all its children/neighbours
 using the `AdjList` array.
 
-A `visited` array to also maintained to prevent cycles from occuring while searching.
+A `visited` array is also maintained to prevent cycles from occuring while searching.
 *i.e* if a node has already been visited once, it will be skipped to prevent an infinite
 loop from taking place.
 
@@ -24,7 +24,7 @@ loop from taking place.
 C++ snippet below.
 {% highlight C++ %}
 vector<bool> visited;
-vector< vector<int> > AdjList;
+vector< vector<pair<int, int>> > AdjList;
 
 void dfs(int u)
 {
@@ -33,7 +33,7 @@ void dfs(int u)
     {
         //v.first -> edge connection v.second -> weight of edge
         pair<int, int> v = AdjList[u][j];
-        if (visited[v] == false)
+        if (visited[v.first] == false)
             dfs(v.first);
     }
 } // for simple graph traversal, we ignore the weight stored at v.second

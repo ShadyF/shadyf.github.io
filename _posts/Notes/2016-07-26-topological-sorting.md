@@ -40,6 +40,8 @@ solution to this.*
 C++11 code below
 
 {% highlight c++ %}
+int n;  // number of vertices
+int m;  // number of edges
 stack<int> TopSort;
 
 void topologicalSort(int u)
