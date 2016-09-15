@@ -6,7 +6,7 @@ category: Notes
 
 ## Problem Statement
 
-Given an **weighted** graph `G`, what are the shortest paths from a
+Given a **weighted** graph `G`, what are the shortest paths from a
 source vertex `s` to every other vertex `d` in our graph?
 
 **Example:** Given a city (graph) with junctions (vertices) and roads (edges), 
