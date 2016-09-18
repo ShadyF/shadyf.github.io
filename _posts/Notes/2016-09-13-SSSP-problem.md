@@ -243,10 +243,10 @@ select the closest (shortest in distance) vertex that has not been processed,
 and performs this relaxation process on all of its outgoing edges.
 
 By contrast, the Bellman-Ford algorithm simply relaxes **all** the edges,
-and it does this `V - 1` times, where `V`is the number of vertices.
+and it does this `V - 1` times, where `V` is the number of vertices.
 
 The reason/proof of why this works can be found in
-[this Wikipedia article](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm#Proof_of_correctness)
+[this Wikipedia article](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm#Proof_of_correctness).
 
 The Bellman-Ford algorithm can also be used to detect the presence of cycles by simply
 running one more iteration after the main `V - 1` times. If any changes are
