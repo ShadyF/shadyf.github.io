@@ -43,11 +43,11 @@ C++11 code below
 int n;  // number of vertices
 int m;  // number of edges
 stack<int> TopSort;
+vector<vector<int>> adj_list;
+vector<bool> visited;
 
 void topologicalSort(int u)
 {
-    if (u > n)
-        return;
     visited[u] = true;
     for (int i = 0; i < adj_list[u].size(); i++)
         if (!visited[adj_list[u][i]])
@@ -61,13 +61,17 @@ void topologicalSort(int u)
 
 int main()
 {
+    // Reset visited vector, fill with 'false'
+    visited.clear();
+    visited.resize(n, false);
+    
     for (int i = 0; i < m; i++)
     {
         scanf("%d %d", &u, &v);
         adj_list[u].push_back(v);
     }
     for (int i = 0; i < n; i++)
-    //Makes sure to get topsort of entire graph even if it is disconnected
+    // Makes sure to get topsort of entire graph even if it is disconnected
         if (!visited[i])
             topologicalSort(i);
             
