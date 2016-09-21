@@ -16,3 +16,153 @@ in `G`?
 what is the shortest path from every junction in the city to all the other junctions?
 
 ## General Idea | $$ O(V^3) $$
+
+One way to solve this problem is to make `V` calls to 
+a [SSSP algorithm](http://shadyf.com/blog/notes/2016-09-13-SSSP-problem/):
+
+- V calls of $$ O((V+E)logV) $$ for Dijkstra's = $$ O(V^3 logV) $$ if E = $$ V^2 $$
+- V calls of $$ O(VE) $$ for Bellman-Ford = $$ O(V^4) $$ if E = $$ V^2 $$
+
+An alternative $$ O(V^3) $$ solution to the APSP problem is the
+[Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm).
+
+The Floyd-Warshall algorithm is a Dynamic Programming algorithm that,
+in essense, builds up its solution using a bottom-up approach by gradually
+allowing the usage of intermediate vertices (vertices `[0..k]`) to form the shortest paths.
+
+Initially, we'll load our graph into an Adjacency Matrix which should now represent
+the direct distance between each pair of vertices, i.e there are
+no intermediate vertices between any two pair of vertices (`k = -1`).
+
+Next, we'll allow vertex `0` (`k = 0`) to be used as an intermediate vertex
+in the path between any two vertices. For vertices `i` and `j` with `k = 0`,
+the shortest path could be either:
+
+1. The shortest distance of the previous iterations (In this case, when `k = -1`, i.e a direct edge between `i` and `j`)
+2. The shortest distance from `i` to 0 + the shortest distance from 0 to `j` (`0` is used as an intermediate vertex)
+
+After looping over all the possible combinations of `i` and `j`, we'll repeat the same
+process but only allowing vertex `1` (`k` is `1`) to be used as an intermediate vertex.
+The shortest path between `i` and `j` with `k = 1` could be either:
+
+1. The shorest distance computed in previous iterations (Either when `k = -1` or `k = 0`)
+2. the shortest distance from `i` to `1` + the shortest distance from `1` to `j`
+(the shortest distance as in the shortest computed distance from previous iterations)
+
+We'll keep on repeating this process for `k = 2`, `k = 3`...`k = V - 1` and then,
+finally, our adjacency matrix should contain all the shortest distances between any two
+vertices in our graph.
+
+### A couple of things to note
+- The Floyd-Warshall algorithm works well with negative edges and can even tolerate
+and detect negative edge cycles.
+- The main benefit of using Floyd-Warshall's algorithm is that it's only
+four to six lines long. Always consider using Floyd-Warshall when the input graph
+is relatively small (`V <= 400`)
+
+## Code
+
+C++11 code below.
+
+{% highlight c++ %}
+int AdjMat[50][50];
+const inf INF = 0x3f3f3f3f;
+
+// Example main usage
+int main() {
+    memset(AdjMat, INF, sizeof(AdjMat));
+    
+    // AdjMat[i][j] should contain the weight of edge (i, j)
+    // or INF if there is no edge after the following loop
+    for (int i = 0; i < E; i++) {
+        int u, v, w;
+        cin >> u >> v >> w;
+        AdjMat[u][v] = w;
+    }
+    
+    // The main FW loop, O(V^3)
+    for (int k = 0; k < V; k++)
+        for (int i = 0; i < V; i++)
+            for (int j = 0; j < V; j++)
+                // What do we do if source == destination ?
+                if (i == j) AdjMat[i][j] = 0;
+                
+                // AdjMat[i][j] will be updated with the shorter of
+                // 1. shortest distance computed in previous iterations
+                // 2. the shortest distance from i to k + the shortest
+                // distance from k to j
+                else 
+                    AdjMat[i][j] = min(AdjMat[i][j], AdjMat[i][k] + AdjMat[k][j]);
+}
+{% endhighlight %}
+
+## Variations
+
+### SSSP on Small Weighted Graphs
+
+Instead of using Dijskta's/Bellman-Ford's algorithms to solve the SSSP problem
+on a relatively small graph where `V <= 400`, we can use the much shorter
+(coding wise) Floyd-Warshall algorithm.
+
+### Printing the Shortest Paths
+
+Unlike in BFS/Dijkstra's/Bellman-Ford's algorithms, we cannot simply
+use a 1D `vector<int> p` to store the parent information of each vertex.
+Instead, we need to use a 2D parent matrix to be able to properly reconstruct
+the paths.
+
+{% highlight c++ %}
+void printPath(int i, int j) {
+    if (i != j) printPath(i, p[i][j]);
+    printf(" %d", j);
+}
+
+int main() {
+    // The following assumes the proper weights have already been
+    // inserts into AdjMat
+    for(int i = 0; i < V; i++)
+        for(int j = 0; j < V; j++)
+            p[i][j] = i;
+            
+    // FW loop
+    for (int k = 0; k < V; k++)
+        for (int i = 0; i < V; i++)
+            for (int j = 0; j < V; j++)
+                if (i == j) AdjMat[i][j] = 0;
+                else if (AdjMat[i][k] + AdjMat[k][j] < AdjMat[i][j]) {
+                    AdjMat[i][j] = AdjMat[i][k] + AdjMat[k][j];
+                    p[i][j] = p[k][j];      // update parent matrix
+                }
+                
+    // print path from source to destination
+    // NOTE: This will not work is the source is the same as the
+    // destination (source == destination)
+    printPath(s, d);
+}
+{% endhighlight %}
+
+### Transitive Closure (Warshall's Algorithm)
+
+The Transitive Closure problem is defined as the following:
+
+> Given a graph, determine if vertex `i` is connected to vertex `j`, either
+directly or indirectly.
+
+We can solve this problem using a modified FW that utilizes bitwise operations
+that come with a (significant) speedbost aswell. Initially, `AdjMat[i][j]` will
+contain `1` if vertex `i` is directly connected to `j`. 
+
+After running the algorithm, we can then check if `i` is connected to `j`
+either directly or indirectly by checking `AdjMat[i][j]`'s value
+(`1` if connected, `0` if not connected). 
+
+{% highlight c++ %}
+// AdjMat[i][j] should be set to 1 if direct edge from i to j and
+// set to 0 otherwise
+for (int k = 0; k < V; k++)
+    for (int i = 0; i < V; i++)
+        for (int j = 0; j < V; j++)
+            AdjMat[i][j] |= (AdjMat[i][k] & AdjMat[k][j]);
+{% endhighlight %}
+
+### Minimax and Maximin Problem
