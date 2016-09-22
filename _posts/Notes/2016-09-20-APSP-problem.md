@@ -149,7 +149,7 @@ The Transitive Closure problem is defined as the following:
 directly or indirectly.
 
 We can solve this problem using a modified FW that utilizes bitwise operations
-that come with a (significant) speedbost aswell. Initially, `AdjMat[i][j]` will
+that come with a (significant) speedboost as well. Initially, `AdjMat[i][j]` will
 contain `1` if vertex `i` is directly connected to `j`. 
 
 After running the algorithm, we can then check if `i` is connected to `j`
@@ -166,3 +166,82 @@ for (int k = 0; k < V; k++)
 {% endhighlight %}
 
 ### Minimax and Maximin Problem
+
+An excellent explanation of the maximin and minimax problem can be
+found in this [Stack Overflow answer](http://stackoverflow.com/a/9023192).
+
+In short, the maximin path (bottleneck path) revolves around find a path
+from the source to the destination whose minimum-weight edge is maximized
+(I visualize it as trying to clamp the lower-limit upwards as much as possible).
+
+The minimax path represents the opposite idea - the path from source to destination
+that minimizes the maximum edge weight (trying to clamp the upper-limit downwards as
+much as possible).
+
+This problem can be solved using a slight modification of FW's algorithm.
+Instead of trying to figure out the length of the shortest path, to find the
+minimax path we'll now have to find the minimum of the max weight of all the edges
+in the path from `i` to `j` 
+
+{% highlight c++ %}
+// MINIMAX PATH
+
+// Pair of vertices with no connection between them 
+// should be initialized with INF
+// i.e AdjMat[i][j] = INF if no direct edge between them
+for(int k = 0; k < V; k++)
+  for(int i = 0; i < V; i++)
+    for(int j = 0; j < V; j++)
+      AdjMat[i][j] = min(AdjMat[i][j], max(AdjMat[i][k], AdjMat[k][j]));
+{% endhighlight %}
+
+For the maximin path, we need to find the maximum of the minimum weight of
+all the edges in the path from `i` to `j`.
+
+{% highlight c++ %}
+// MAXIMIN PATH
+
+// Pair of vertices with no connection between them 
+// should be initialized with -INF
+// i.e AdjMat[i][j] = -INF if no direct edge between them
+for(int k = 0; k < V; k++)
+  for(int i = 0; i < V; i++)
+    for(int j = 0; j < V; j++)
+      AdjMat[i][j] = max(AdjMat[i][j], min(AdjMat[i][k], AdjMat[k][j]));
+{% endhighlight %}
+
+### Finding the Cheapest/Negative Cycle
+
+The Floyd-Warshall algorithm can be used to detect whether a graph has a cycle,
+a negative cycle and even the cheapest/smallest non-negative cycle among all
+possible cycles.
+
+To do this, we simply run the stardard FW algorithm without checking 
+if `i == j` in our loop and explicitly updating `AdjMat` accordingly. We should simply 
+leave the case where `i == j` to modified on its own in the main loop.
+
+After the algorithm's execution, we will find a case where `AdjMat[i][i] != INF` if a cycle exists.
+
+If a negative cycle exists, we will find a case where `AdjMat[i][i] < 0`
+
+To find the cheapest non-negative cycle, we simply loop every possible
+vertex `i` and find the smallest `AdjMat[i][i]`
+
+### Finding the Diameter of a Graph
+
+The diameter of the graph is defined as the maximum shortest path distance
+between any two vertices in a graph.
+
+To find the diameter, we simply loop over `AdjMat[i][j]` in $$ O(V^2) $$
+after FW has been executed and find the maximum value.
+
+### Finding the SCCs of a Directed Graph
+
+Usually, to find the SCCs of a directed graph we'd use Tarjan's $$ O(V + E) $$
+algorithm. However, if input graph is relatively small, we can use the much 
+shorter FW algorithm to solve the same problem.
+
+We'll first run Warhshall's algorithm (described above) in $$ O(V^3) $$ and then
+use the following check: To find all the members of a SSC that contain vertex `i`,
+we'll check for all other vertices `j` If `AdjMat[i][j] == 1` and `AdjMat[j][i] == 1`
+which would indicate that both`i` and `j` belong to the same SCC.
