@@ -120,13 +120,13 @@ int main()
 };
 {% endhighlight %}
 
-## Variants
+## Variations
 
-#### Maximum Spanning Tree
+### Maximum Spanning Tree
 Instead of sorting the Edge List in ascending order, we sort the Edge List
 in descending order and proceed normally.
 
-#### Minimum 'Spanning Forest'
+### Minimum 'Spanning Forest'
 In this variant, we want to form a forest of `K` connected components.
 
 Remember, when we first initialize our `UnionFind` class, we have `V` connected components
@@ -150,7 +150,7 @@ for (int i = 0; i < EdgeList.size() && UF.numDisjoinSets() > K; i++)
     }
 {% endhighlight %}
 
-#### Second Best Spanning Tree
+### Second Best Spanning Tree
 
 Sometimes, we may not just want the MST, but also the second best MST of a graph.
 
@@ -209,7 +209,7 @@ for (int i = 0; i < flag_vector.size(); i++)
 }
 {% endhighlight %}
 
-#### Minimax and Maximin
+### Minimax and Maximin
 
 The Minimax path problem is the problem of finding the maximum edge weight
 along a minumum path.
