@@ -237,11 +237,12 @@ after FW has been executed and find the maximum value.
 
 ### Finding the SCCs of a Directed Graph
 
-Usually, to find the SCCs of a directed graph we'd use Tarjan's $$ O(V + E) $$
-algorithm. However, if input graph is relatively small, we can use the much 
+Usually, to find the SCCs of a directed graph we'd use
+[Tarjan's $$ O(V + E) $$ algorithm](http://shadyf.com/blog/notes/2016-07-31-finding-strongly-connected-components/).
+However, if the input graph is relatively small, we can use the much 
 shorter FW algorithm to solve the same problem.
 
 We'll first run Warhshall's algorithm (described above) in $$ O(V^3) $$ and then
-use the following check: To find all the members of a SSC that contain vertex `i`,
+use the following check: To find all the members of a SCC that contain vertex `i`,
 we'll check for all other vertices `j` If `AdjMat[i][j] == 1` and `AdjMat[j][i] == 1`
 which would indicate that both`i` and `j` belong to the same SCC.
