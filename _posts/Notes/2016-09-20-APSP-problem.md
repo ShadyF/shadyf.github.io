@@ -238,7 +238,7 @@ after FW has been executed and find the maximum value.
 ### Finding the SCCs of a Directed Graph
 
 Usually, to find the SCCs of a directed graph we'd use
-[Tarjan's $$ O(V + E) $$ algorithm](http://shadyf.com/blog/notes/2016-07-31-finding-strongly-connected-components/).
+[Tarjan's O(V + E) algorithm](http://shadyf.com/blog/notes/2016-07-31-finding-strongly-connected-components/).
 However, if the input graph is relatively small, we can use the much 
 shorter FW algorithm to solve the same problem.
 
