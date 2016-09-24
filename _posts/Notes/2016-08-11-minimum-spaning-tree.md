@@ -86,7 +86,8 @@ public:
             }
         }
     }
-    
+};
+
 int main()
 {
     EdgeList.clear();
