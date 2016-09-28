@@ -9,7 +9,7 @@ A web-based image manipulation tool that allows its users to upload
 and perform various manipulations on their chosen images, such as applying
 transformations, Instagram-like color filters and kernel fitlers.
 
-**Techonolgies Used:** Python3, Django, HTML5/CSS3, Javascript, Jquery, Ajax,
+**Techonolgies Used:** Python3, Django, HTML5/CSS3, Javascript, jQuery, AJAX,
 Bootstrap, ImageMagick and Pillow.
 
 [**Demo**](https://theia-web.herokuapp.com/editor) &nbsp; 
@@ -66,7 +66,7 @@ along with the slacks of each gate.
 
 **Team Members:** 3
 
-**Technologies Used:** Javascript, Jquery
+**Technologies Used:** Javascript, jQuery
 
 [**Source Code**](https://github.com/ShadyF/CRN_Paster)
 
