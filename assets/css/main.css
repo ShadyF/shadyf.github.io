@@ -673,6 +673,7 @@ table tr td :last-child {
 
 .category-articles {
     padding-left: 35px;
+    list-style-type: none;
 }
 
 .category-articles article {
